@@ -1,0 +1,412 @@
+[gd_scene load_steps=21 format=3 uid="uid://7ic4oyklf2i6"]
+
+[ext_resource type="PackedScene" uid="uid://c484qvwl7khtf" path="res://player.tscn" id="1_8fj8c"]
+[ext_resource type="Script" path="res://main.gd" id="1_fhw0q"]
+[ext_resource type="PackedScene" uid="uid://bw3itxp5vgvex" path="res://mob.tscn" id="3_8jixf"]
+[ext_resource type="PackedScene" uid="uid://d1n2bae6t4r04" path="res://audio_stream_player.tscn" id="5_hmhha"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f0j37"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2m3k5"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.886275, 0.941176, 0.843137, 1)
+metallic = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_76515"]
+material = SubResource("StandardMaterial3D_2m3k5")
+size = Vector3(60, 2, 60)
+
+[sub_resource type="Animation" id="Animation_ptf20"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:mesh:material:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.886275, 0.941176, 0.843137, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_jja2n"]
+resource_name = "new_animation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:mesh:material:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0.900757, 0.793664, 1), Color(0.981406, 0.884893, 0.96513, 1), Color(0.414063, 0.671875, 0.898438, 1), Color(0.995235, 0.919097, 0.638187, 1), Color(0.884154, 0.949308, 0.616341, 1), Color(0.713504, 0.984189, 0.706698, 1), Color(0.553839, 0.990988, 0.934674, 1), Color(0.756187, 0.924855, 0.995865, 1), Color(1, 0.900757, 0.793664, 1), Color(0.414063, 0.671875, 0.898438, 1), Color(0.907939, 0.931372, 0.609838, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s11hu"]
+_data = {
+"RESET": SubResource("Animation_ptf20"),
+"new_animation": SubResource("Animation_jja2n")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ot5fv"]
+albedo_color = Color(0.968627, 0.545098, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_2tiwh"]
+material = SubResource("StandardMaterial3D_ot5fv")
+
+[sub_resource type="Curve3D" id="Curve3D_tuhom"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -9.941, 0, -9.62674, 0, 0, 0, 0, 0, 0, -10.0544, 0, 9.99029, 0, 0, 0, 0, 0, 0, 9.78942, 0, 9.99029, 0, 0, 0, 0, 0, 0, 9.90282, 0, -9.96692, 0, 0, 0, 0, 0, 0, -9.82761, 0, -9.51335),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[sub_resource type="Theme" id="Theme_wh4fh"]
+default_font_size = 22
+
+[sub_resource type="Theme" id="Theme_nysxk"]
+
+[sub_resource type="Theme" id="Theme_p8pet"]
+
+[sub_resource type="FontVariation" id="FontVariation_0o2fv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_la5ne"]
+line_spacing = 1.0
+font = SubResource("FontVariation_0o2fv")
+font_size = 150
+font_color = Color(1, 1, 0.623529, 1)
+outline_size = 52
+outline_color = Color(0.698039, 0.360784, 0.054902, 1)
+shadow_size = 0
+shadow_color = Color(0, 1, 0, 0)
+
+[sub_resource type="FontFile" id="FontFile_g2f4x"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/glyphs/0/advance = Vector2(0, 0)
+cache/0/16/0/glyphs/0/offset = Vector2(0, 0)
+cache/0/16/0/glyphs/0/size = Vector2(0, 0)
+cache/0/16/0/glyphs/0/uv_rect = Rect2(0, 0, 0, 0)
+cache/0/16/0/glyphs/0/texture_idx = -1
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/30/25 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/30/35 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/30/55 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/30/65 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/30/75 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/30/95 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/30/105 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/30/135 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/30/145 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/30/155 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/30/175 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/30/185 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/30/195 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/30/205 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/30/165 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/30/125 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/30/115 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/30/85 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/30/45 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/30/15 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/30/5 = Vector2(0, 0)
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
+cache/0/30/0/glyphs/0/advance = Vector2(0, 0)
+cache/0/30/0/glyphs/0/offset = Vector2(0, 0)
+cache/0/30/0/glyphs/0/size = Vector2(0, 0)
+cache/0/30/0/glyphs/0/uv_rect = Rect2(0, 0, 0, 0)
+cache/0/30/0/glyphs/0/texture_idx = -1
+cache/0/30/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/30/25 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/30/35 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/30/55 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/30/65 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/30/75 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/30/95 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/30/105 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/30/135 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/30/145 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/30/155 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/30/175 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/30/185 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/30/195 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/30/205 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/30/165 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/30/125 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/30/115 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/30/85 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/30/45 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/30/15 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/30/5 = Vector2(0, 0)
+cache/0/30/25/glyphs/0/offset = Vector2(0, 0)
+cache/0/30/25/glyphs/0/size = Vector2(0, 0)
+cache/0/30/25/glyphs/0/uv_rect = Rect2(0, 0, 0, 0)
+cache/0/30/25/glyphs/0/texture_idx = -1
+cache/0/30/35/glyphs/0/offset = Vector2(0, 0)
+cache/0/30/35/glyphs/0/size = Vector2(0, 0)
+cache/0/30/35/glyphs/0/uv_rect = Rect2(0, 0, 0, 0)
+cache/0/30/35/glyphs/0/texture_idx = -1
+cache/0/30/55/glyphs/0/offset = Vector2(0, 0)
+cache/0/30/55/glyphs/0/size = Vector2(0, 0)
+cache/0/30/55/glyphs/0/uv_rect = Rect2(0, 0, 0, 0)
+cache/0/30/55/glyphs/0/texture_idx = -1
+cache/0/30/65/glyphs/0/offset = Vector2(0, 0)
+cache/0/30/65/glyphs/0/size = Vector2(0, 0)
+cache/0/30/65/glyphs/0/uv_rect = Rect2(0, 0, 0, 0)
+cache/0/30/65/glyphs/0/texture_idx = -1
+cache/0/30/75/glyphs/0/offset = Vector2(0, 0)
+cache/0/30/75/glyphs/0/size = Vector2(0, 0)
+cache/0/30/75/glyphs/0/uv_rect = Rect2(0, 0, 0, 0)
+cache/0/30/75/glyphs/0/texture_idx = -1
+cache/0/30/95/glyphs/0/offset = Vector2(0, 0)
+cache/0/30/95/glyphs/0/size = Vector2(0, 0)
+cache/0/30/95/glyphs/0/uv_rect = Rect2(0, 0, 0, 0)
+cache/0/30/95/glyphs/0/texture_idx = -1
+cache/0/30/105/glyphs/0/offset = Vector2(0, 0)
+cache/0/30/105/glyphs/0/size = Vector2(0, 0)
+cache/0/30/105/glyphs/0/uv_rect = Rect2(0, 0, 0, 0)
+cache/0/30/105/glyphs/0/texture_idx = -1
+cache/0/30/135/glyphs/0/offset = Vector2(0, 0)
+cache/0/30/135/glyphs/0/size = Vector2(0, 0)
+cache/0/30/135/glyphs/0/uv_rect = Rect2(0, 0, 0, 0)
+cache/0/30/135/glyphs/0/texture_idx = -1
+cache/0/30/145/glyphs/0/offset = Vector2(0, 0)
+cache/0/30/145/glyphs/0/size = Vector2(0, 0)
+cache/0/30/145/glyphs/0/uv_rect = Rect2(0, 0, 0, 0)
+cache/0/30/145/glyphs/0/texture_idx = -1
+cache/0/30/155/glyphs/0/offset = Vector2(0, 0)
+cache/0/30/155/glyphs/0/size = Vector2(0, 0)
+cache/0/30/155/glyphs/0/uv_rect = Rect2(0, 0, 0, 0)
+cache/0/30/155/glyphs/0/texture_idx = -1
+cache/0/30/175/glyphs/0/offset = Vector2(0, 0)
+cache/0/30/175/glyphs/0/size = Vector2(0, 0)
+cache/0/30/175/glyphs/0/uv_rect = Rect2(0, 0, 0, 0)
+cache/0/30/175/glyphs/0/texture_idx = -1
+cache/0/30/185/glyphs/0/offset = Vector2(0, 0)
+cache/0/30/185/glyphs/0/size = Vector2(0, 0)
+cache/0/30/185/glyphs/0/uv_rect = Rect2(0, 0, 0, 0)
+cache/0/30/185/glyphs/0/texture_idx = -1
+cache/0/30/195/glyphs/0/offset = Vector2(0, 0)
+cache/0/30/195/glyphs/0/size = Vector2(0, 0)
+cache/0/30/195/glyphs/0/uv_rect = Rect2(0, 0, 0, 0)
+cache/0/30/195/glyphs/0/texture_idx = -1
+cache/0/30/205/glyphs/0/offset = Vector2(0, 0)
+cache/0/30/205/glyphs/0/size = Vector2(0, 0)
+cache/0/30/205/glyphs/0/uv_rect = Rect2(0, 0, 0, 0)
+cache/0/30/205/glyphs/0/texture_idx = -1
+cache/0/30/165/glyphs/0/offset = Vector2(0, 0)
+cache/0/30/165/glyphs/0/size = Vector2(0, 0)
+cache/0/30/165/glyphs/0/uv_rect = Rect2(0, 0, 0, 0)
+cache/0/30/165/glyphs/0/texture_idx = -1
+cache/0/30/125/glyphs/0/offset = Vector2(0, 0)
+cache/0/30/125/glyphs/0/size = Vector2(0, 0)
+cache/0/30/125/glyphs/0/uv_rect = Rect2(0, 0, 0, 0)
+cache/0/30/125/glyphs/0/texture_idx = -1
+cache/0/30/115/glyphs/0/offset = Vector2(0, 0)
+cache/0/30/115/glyphs/0/size = Vector2(0, 0)
+cache/0/30/115/glyphs/0/uv_rect = Rect2(0, 0, 0, 0)
+cache/0/30/115/glyphs/0/texture_idx = -1
+cache/0/30/85/glyphs/0/offset = Vector2(0, 0)
+cache/0/30/85/glyphs/0/size = Vector2(0, 0)
+cache/0/30/85/glyphs/0/uv_rect = Rect2(0, 0, 0, 0)
+cache/0/30/85/glyphs/0/texture_idx = -1
+cache/0/30/45/glyphs/0/offset = Vector2(0, 0)
+cache/0/30/45/glyphs/0/size = Vector2(0, 0)
+cache/0/30/45/glyphs/0/uv_rect = Rect2(0, 0, 0, 0)
+cache/0/30/45/glyphs/0/texture_idx = -1
+cache/0/30/15/glyphs/0/offset = Vector2(0, 0)
+cache/0/30/15/glyphs/0/size = Vector2(0, 0)
+cache/0/30/15/glyphs/0/uv_rect = Rect2(0, 0, 0, 0)
+cache/0/30/15/glyphs/0/texture_idx = -1
+cache/0/30/5/glyphs/0/offset = Vector2(0, 0)
+cache/0/30/5/glyphs/0/size = Vector2(0, 0)
+cache/0/30/5/glyphs/0/uv_rect = Rect2(0, 0, 0, 0)
+cache/0/30/5/glyphs/0/texture_idx = -1
+
+[sub_resource type="LabelSettings" id="LabelSettings_42iuw"]
+line_spacing = 10.0
+font = SubResource("FontFile_g2f4x")
+font_size = 30
+font_color = Color(0.215686, 1, 1, 1)
+outline_color = Color(0.380392, 0, 0.6, 1)
+
+[node name="Main" type="Node"]
+script = ExtResource("1_fhw0q")
+mob_scene = ExtResource("3_8jixf")
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_f0j37")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_76515")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Ground/MeshInstance3D"]
+autoplay = "new_animation"
+speed_scale = 0.08
+libraries = {
+"": SubResource("AnimationLibrary_s11hu")
+}
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.144529, 0.989501, 0, -0.989501, 0.144529, 0, 15, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_8fj8c")]
+
+[node name="CameraPivot" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19)
+projection = 1
+size = 19.0
+
+[node name="Cyclinders" type="Node3D" parent="."]
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cyclinders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 10)
+mesh = SubResource("CylinderMesh_2tiwh")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Cyclinders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -10)
+mesh = SubResource("CylinderMesh_2tiwh")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Cyclinders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 10)
+mesh = SubResource("CylinderMesh_2tiwh")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Cyclinders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -10)
+mesh = SubResource("CylinderMesh_2tiwh")
+
+[node name="SpawnPath" type="Path3D" parent="."]
+curve = SubResource("Curve3D_tuhom")
+
+[node name="SpawnLocation" type="PathFollow3D" parent="SpawnPath"]
+transform = Transform3D(-0.999983, 0, 0.00578058, 0, 1, 0, -0.00578058, 0, -0.999983, -9.941, 0, -9.62674)
+
+[node name="MobTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="UserInterface" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 41.0
+offset_bottom = 42.0
+theme = SubResource("Theme_wh4fh")
+
+[node name="Retry" type="ColorRect" parent="UserInterface"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.025
+anchor_top = -0.05
+anchor_right = 48.025
+anchor_bottom = 26.175
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1.03148)
+theme = SubResource("Theme_nysxk")
+color = Color(0.214844, 0.996094, 0.996094, 1)
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="UserInterface/Retry"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -695.0
+offset_top = -101.5
+offset_right = 695.0
+offset_bottom = 101.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_p8pet")
+text = "Press Space To Retry!"
+label_settings = SubResource("LabelSettings_la5ne")
+
+[node name="ColorRect" type="ColorRect" parent="UserInterface"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 1.622
+anchor_bottom = 1.566
+offset_right = -44.88
+offset_bottom = -42.64
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label4" type="Label" parent="UserInterface/ColorRect"]
+offset_left = 89.0
+offset_top = 29.0
+offset_right = 905.0
+offset_bottom = 438.0
+size_flags_horizontal = 4
+text = "D"
+label_settings = SubResource("LabelSettings_42iuw")
+
+[node name="Label" type="Label" parent="UserInterface/ColorRect"]
+offset_left = 40.0
+offset_top = -3.0
+offset_right = 856.0
+offset_bottom = 406.0
+size_flags_horizontal = 4
+text = " W"
+label_settings = SubResource("LabelSettings_42iuw")
+
+[node name="Label5" type="Label" parent="UserInterface/ColorRect"]
+offset_left = 17.0
+offset_top = 100.0
+offset_right = 833.0
+offset_bottom = 509.0
+size_flags_horizontal = 4
+text = " Space"
+label_settings = SubResource("LabelSettings_42iuw")
+
+[node name="Label3" type="Label" parent="UserInterface/ColorRect"]
+offset_left = 47.0
+offset_top = 65.0
+offset_right = 863.0
+offset_bottom = 474.0
+size_flags_horizontal = 4
+text = " S"
+label_settings = SubResource("LabelSettings_42iuw")
+
+[node name="Label2" type="Label" parent="UserInterface/ColorRect"]
+offset_left = 11.0
+offset_top = 29.0
+offset_right = 827.0
+offset_bottom = 438.0
+size_flags_horizontal = 4
+text = " A"
+label_settings = SubResource("LabelSettings_42iuw")
+
+[node name="AudioStreamPlayer" parent="." instance=ExtResource("5_hmhha")]
+
+[connection signal="hit" from="Player" to="." method="_on_player_hit"]
+[connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
